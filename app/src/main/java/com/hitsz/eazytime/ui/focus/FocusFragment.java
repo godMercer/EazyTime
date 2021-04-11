@@ -1,9 +1,11 @@
 package com.hitsz.eazytime.ui.focus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,7 +15,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.hitsz.eazytime.R;
-import com.hitsz.eazytime.ui.focus.FocusViewModel;
 
 public class FocusFragment extends Fragment {
 
@@ -29,6 +30,22 @@ public class FocusFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
+            }
+        });
+        Button focusin = root.findViewById(R.id.focusin);
+        focusin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intofcousing = new Intent ("com.example.fcousing.ACTION_START");
+                startActivity(intofcousing);
+            }
+        });
+        Button tomato_work_in = root.findViewById(R.id.tomato_work_in);
+        tomato_work_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intotomato = new Intent ("com.example.tomato.ACTION_START");
+                startActivity(intotomato);
             }
         });
         return root;
